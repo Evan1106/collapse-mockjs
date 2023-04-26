@@ -1,58 +1,68 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-    </p>
-    <h3>Installed CLI Plugins</h3>
-    <ul>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint" target="_blank" rel="noopener">eslint</a></li>
-    </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank" rel="noopener">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
-      <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
-      <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
-      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></li>
-      <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
-    </ul>
+  <div class="testing">
+    <div class="card">
+      <v-row justify="center">
+        <!-- <v-btn v-on:click="handleChange"> test </v-btn> -->
+        <v-expansion-panels popout>
+          <v-expansion-panel
+            v-for="(item,i) in 1"
+            :key="i"
+          >
+            <v-expansion-panel-header disable-icon-rotate>
+              <img
+              src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
+              class="image"
+            />
+            <template v-slot:actions>
+              <v-icon color="error">
+                mdi-alert-circle1
+              </v-icon>
+            </template>
+            </v-expansion-panel-header>
+            <v-expansion-panel-content>
+              <div>Info 1：与现实生活的流程、逻辑保持一致，遵循用户习惯的语言和概念；</div>
+              <br>
+              <div>Info 2：所有的元素和结构需保持一致，比如：设计样式、图标和文本、元素的位置等。</div>
+            </v-expansion-panel-content>
+          </v-expansion-panel>
+        </v-expansion-panels>
+
+        
+        
+        <v-expand-transition>
+        <v-card
+          v-show="expand"
+          height="100"
+          width="100"
+          class="mx-auto secondary"
+        ></v-card>
+      </v-expand-transition>
+      </v-row>
+    </div>
+
   </div>
+
 </template>
 
 <script>
-export default {
-  name: 'HelloWorld',
-  props: {
-    msg: String
+  export default {
+    data () {
+      return {
+        expand: false
+      }
+    },
+    methods: {
+      handleChange(val) {
+        console.log(val)
+        this.expand = !this.expand
+      }
+    },
   }
-}
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+<style>
+.card {
+  width: 400px;
+  padding: 30px;
 }
 </style>
