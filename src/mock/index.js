@@ -9,7 +9,7 @@ Random.extend({
       return this.pick(arr)
     },
     image: function() {
-        let img = Random.dataImage();
+        let img = Random.dataImage("300x500", Random.name());
         return img
     }
   })

@@ -1,16 +1,17 @@
 <template>
-    <div class="collapse d-flex">
-        <v-row>
-            <v-col  :id="item.id" v-for="(item,index) in fakeData" :key="index" style="padding: 20px;" v-on:click="showInfo(item)" cols="6">
+    <div class="collapse">     
+        <v-row no-gutters>
+            <v-col  :id="item.id" v-for="(item,index) in fakeData" :key="index" style="padding: 10px;">
                 <v-card v-if="!(item.isFocus)" max-width="250">
                     <v-img
+                    v-on:click="showInfo(item)"
                     lazy-src="https://picsum.photos/id/11/10/6"
                     height="150"
                     width="250"
                     :src="item.image"
                     ></v-img>
                 </v-card>
-                <v-card v-if="item.isFocus" max-width="500">   
+                <v-card v-if="item.isFocus" max-width="500" v-on:click="showInfo(item)">   
                     <v-img
                         lazy-src="https://picsum.photos/id/11/10/6"
                         height="300"
@@ -31,8 +32,8 @@
                 </v-card>
             </v-col>
         </v-row>
-        <div :id="item.id" v-for="(item,index) in fakeData" :key="index" style="padding: 20px;" v-on:click="showInfo(item)">
-        <!-- <v-card v-if="!(item.isFocus)" max-width="250">
+        <!-- <div class="cards_group" :id="item.id" v-for="(item,index) in fakeData" :key="index" style="padding: 20px;">
+        <v-card v-if="!(item.isFocus)" max-width="250" v-on:click="showInfo(item)">
             <v-img
             lazy-src="https://picsum.photos/id/11/10/6"
             height="150"
@@ -40,7 +41,7 @@
             :src="item.image"
             ></v-img>
         </v-card>
-        <v-card v-if="item.isFocus" max-width="500">   
+        <v-card v-if="item.isFocus" max-width="500" v-on:click="showInfo(item)">   
             <v-img
                 lazy-src="https://picsum.photos/id/11/10/6"
                 height="300"
@@ -58,8 +59,8 @@
             <v-card-text>
                 {{ item.text }}
             </v-card-text>        
-        </v-card> -->
-        </div>
+        </v-card>
+        </div> -->
     </div>
 </template>
 
@@ -76,8 +77,6 @@ export default {
         return {
             isFocus: false,
             fakeData:[],
-
-
         }
     },
     methods: {
@@ -90,9 +89,10 @@ export default {
             
         },
         handleClickOutside(event) {
-            if(!this.$el.contains(event.target.value)){
+            console.log(this.$el.contains(event.target))
+            if(!this.$el.contains(event.target)){//當前組建是否為點擊目標之後裔，$el指向當前组件的DOM元素。
                 for(let i = 0; i< this.fakeData.length;i++){
-                    // this.fakeData[i].isFocus = false
+                    this.fakeData[i].isFocus = false
                 }
             }
         },
@@ -104,3 +104,14 @@ export default {
     },
 }
 </script>
+
+<style>
+/* .collapse {
+    display: flex;
+    flex-wrap: wrap;
+}
+.cards_group {
+    width: 25%;
+    height: auto;
+} */
+</style>
