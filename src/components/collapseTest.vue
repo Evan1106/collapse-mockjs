@@ -61,6 +61,7 @@
             </v-card-text>        
         </v-card>
         </div> -->
+        <v-btn @click="loading">Test</v-btn>
     </div>
 </template>
 
@@ -89,7 +90,7 @@ export default {
             
         },
         handleClickOutside(event) {
-            console.log(this.$el.contains(event.target))
+            // console.log(this.$el.contains(event.target))
             if(!this.$el.contains(event.target)){//當前組建是否為點擊目標之後裔，$el指向當前组件的DOM元素。
                 for(let i = 0; i< this.fakeData.length;i++){
                     this.fakeData[i].isFocus = false
@@ -101,6 +102,16 @@ export default {
             // console.log(res.data)
             this.fakeData = res.data;
         },
+        loading() {
+            this.$loadingself('', {
+                success: (res) => {
+                    console.log(res)
+                }
+            })
+            setTimeout(() => {
+                this.$loadingself.hide()
+            }, 2000)
+        }
     },
 }
 </script>

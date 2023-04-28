@@ -3,6 +3,8 @@ import App from './App.vue'
 import vuetify from './plugins/vuetify'
 import axios from 'axios'
 import './mock/index.js'
+import './plugins'
+
 
 Vue.prototype.$http = axios;
 Vue.config.productionTip = false
