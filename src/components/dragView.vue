@@ -6,11 +6,11 @@
         @dragover="dragover($event, index)"
         @dragstart="dragstart(index)"
         draggable
-        v-for="( item, index) in 100"
-        :key="index"
+        v-for="( item, index) in list"
+        :key="item.label"
         class="list-item"
       >
-      {{ item }}
+      {{ item.label }}
       </li>
     </transition-group>
   </div>
@@ -37,7 +37,7 @@
     },
     methods: {
       shuffle(){
-        this.list = this.$shuffle(this.list)
+        // this.list = this.$shuffle(this.list)
       },
       dragstart(index) {
         this.dragIndex = index;
@@ -63,6 +63,7 @@
 <style lang="scss" scoped>
 .list {
   list-style: none;
+  overflow-y: auto;
   .drag-move {
     transition: transform .3s;
   }
