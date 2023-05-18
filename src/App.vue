@@ -83,7 +83,10 @@
     </v-navigation-drawer>
     <v-main>
         <v-container fluid>
-          <collapseTest/>
+          <!-- <collapseTest/> -->
+          <!-- <fixView></fixView> -->
+          <!-- <whiteBoard></whiteBoard> -->
+          <goTo></goTo>
         </v-container>
     </v-main>
   </v-app>
@@ -91,14 +94,20 @@
 
 <script>
 // import HelloWorld from './components/HelloWorld';
-import collapseTest from './components/collapseTest.vue';
+// import collapseTest from './components/collapseTest.vue';
+// import fixView from './components/fixView.vue';
+// import whiteBoard from './components/whiteBoard.vue';
+import goTo from './components/goTo.vue'
 
 export default {
   name: 'App',
 
   components: {
     // HelloWorld,
-    collapseTest,
+    // collapseTest,
+    // fixView
+    // whiteBoard
+    goTo
   },
 
   data: () => ({
