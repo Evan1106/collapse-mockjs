@@ -86,7 +86,8 @@
           <!-- <collapseTest/> -->
           <!-- <fixView></fixView> -->
           <!-- <whiteBoard></whiteBoard> -->
-          <goTo></goTo>
+          <!-- <goTo></goTo> -->
+          <dragView></dragView>
         </v-container>
     </v-main>
   </v-app>
@@ -97,7 +98,8 @@
 // import collapseTest from './components/collapseTest.vue';
 // import fixView from './components/fixView.vue';
 // import whiteBoard from './components/whiteBoard.vue';
-import goTo from './components/goTo.vue'
+// import goTo from './components/goTo.vue'
+import dragView from './components/dragView.vue'
 
 export default {
   name: 'App',
@@ -107,7 +109,8 @@ export default {
     // collapseTest,
     // fixView
     // whiteBoard
-    goTo
+    // goTo
+    dragView
   },
 
   data: () => ({
