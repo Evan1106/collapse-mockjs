@@ -88,6 +88,7 @@
           <!-- <whiteBoard></whiteBoard> -->
           <!-- <goTo></goTo> -->
           <dragView></dragView>
+          <dragViewTwo></dragViewTwo>
         </v-container>
     </v-main>
   </v-app>
@@ -100,6 +101,7 @@
 // import whiteBoard from './components/whiteBoard.vue';
 // import goTo from './components/goTo.vue'
 import dragView from './components/dragView.vue'
+import dragViewTwo from './components/dragViewTwo.vue';
 
 export default {
   name: 'App',
@@ -110,7 +112,8 @@ export default {
     // fixView
     // whiteBoard
     // goTo
-    dragView
+    dragView,
+    dragViewTwo
   },
 
   data: () => ({
