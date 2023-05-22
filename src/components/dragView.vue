@@ -5,12 +5,13 @@
         @dragenter="dragenter($event, index)"
         @dragover="dragover($event, index)"
         @dragstart="dragstart(index)"
-        draggable
+        :draggable="isdraggable"
         v-for="( item, index) in list"
         :key="item.label"
         class="list-item"
       >
       {{ item.label }}
+      <v-icon style="cursor: move;" @mousedown="isdraggable = true">mdi-drag</v-icon>
       </li>
     </transition-group>
   </div>
@@ -30,15 +31,13 @@
         ],
         dragIndex: '',
         enterIndex:'',
+        isdraggable: false,
       };
     },
     created(){
 
     },
     methods: {
-      shuffle(){
-        // this.list = this.$shuffle(this.list)
-      },
       dragstart(index) {
         this.dragIndex = index;
       },
@@ -53,6 +52,7 @@
       },
       dragover(e) {
         e.preventDefault();
+        this.isdraggable = false
       }
 
 
@@ -68,7 +68,6 @@
     transition: transform .3s;
   }
   .list-item{
-    cursor: move;
     width: 300px;
     background: #EA6E59;
     border-radius: 4px;
